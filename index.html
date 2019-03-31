@@ -8,6 +8,7 @@
     </head>
     <body> 
             <div id="app">
+                    <input type="text" v-on:input="changeTitle">
                     <p>{{ message }}</p>
             </div>
         <script>
@@ -15,7 +16,12 @@
                         el: '#app',
                         data: {
                             message: 'Hello Vue.js!'
-                        } // can put methods object here too
+                        },
+                        methods: {
+                            changeTitle: function (event) {
+                                this.message = event.target.value;
+                            }
+                        }
                })
         </script>
     </body>
